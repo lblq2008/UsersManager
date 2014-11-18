@@ -1,3 +1,8 @@
+﻿
+//GitHub地址:  https://github.com/lblq2008/UsersManager.git
+
+//数据库密码(admin)
+
 //show databases ;
 //创建数据库
 create database lb_database ;
@@ -6,6 +11,17 @@ create database lb_database ;
 use lb_database ;
 
 //建表
+create table users(id integer primary key auto_increment , username varchar(20) not null, realname varchar(20), password varchar(20) not null, email varchar(32), grade integer default 1 );
+
+insert into users values(1,'abc001','张三','123456','abc001@163.com',5);
+insert into users values(2,'abc002','李四','123456','abc002@163.com',1);
+insert into users values(3,'abc003','王五','123456','abc003@163.com',1);
+insert into users values(4,'abc004','杨六','123456','abc004@163.com',1);
+insert into users values(5,'abc005','赵七','123456','abc005@163.com',1);
+
+/**以下为数据库脚本语言***/
+create database lb_database ;
+use lb_database ;
 create table users(id integer primary key auto_increment , username varchar(20) not null, realname varchar(20), password varchar(20) not null, email varchar(32), grade integer default 1 );
 
 insert into users values(1,'abc001','张三','123456','abc001@163.com',5);

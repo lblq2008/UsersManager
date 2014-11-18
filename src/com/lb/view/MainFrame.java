@@ -23,11 +23,11 @@ public class MainFrame extends HttpServlet {
 		out.println("  <HEAD><TITLE>主界面</TITLE></HEAD>");
 		out.println("  <H2>主界面</H2>");
 		out.println("  <BODY>");
-		out.print(" 这是主界面 ");
-		out.print(" <br> <a href=''>管理用户</a> ");
-		out.print(" <br> <a href=''>添加用户</a> ");
-		out.print(" <br> <a href=''>查找用户</a> ");
-		out.print(" <br> <a href=''>退出登录</a> ");
+		out.print(" 欢迎你: " + request.getSession().getAttribute("username") + "<br>");
+		out.print(" <br> <a href='/UsersManager/UsersManageServlet'>管理用户</a><br> ");
+		out.print(" <br> <a href='/UsersManager/UserAddServlet'>添加用户</a><br> ");
+		out.print(" <br> <a href='/UsersManager/UserSerachServlet'>查找用户</a><br> ");
+		out.print(" <br> <a href='/UsersManager/LoginServlet'>退出登录</a><br> ");
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();

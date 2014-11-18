@@ -1,26 +1,23 @@
 package com.lb.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-import javax.resource.spi.ConnectionManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lb.domain.UserInfo;
 
 public class LoginCLServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("登录处理中...");
 		request.setCharacterEncoding("utf-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -48,6 +45,7 @@ public class LoginCLServlet extends HttpServlet {
 			if(rs.next()){
 				//成功则跳转到主页面MainFrame
 				System.out.println("恭喜:密码验证正确...");
+				request.getSession().setAttribute("username", username);
 				request.getRequestDispatcher("/MainFrame").forward(request, response);
 			}else{
 				//返回登陆页面
