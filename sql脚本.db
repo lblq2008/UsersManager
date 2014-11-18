@@ -29,3 +29,9 @@ insert into users values(2,'abc002','李四','123456','abc002@163.com',1);
 insert into users values(3,'abc003','王五','123456','abc003@163.com',1);
 insert into users values(4,'abc004','杨六','123456','abc004@163.com',1);
 insert into users values(5,'abc005','赵七','123456','abc005@163.com',1);
+
+insert into users values(6,'abc006','张三2','123456','abc006@163.com',5);
+insert into users values(7,'abc007','李四2','123456','abc007@163.com',1);
+insert into users values(8,'abc008','王五2','123456','abc008@163.com',1);
+insert into users values(9,'abc009','杨六2','123456','abc009@163.com',1);
+insert into users values(10,'abc010','赵七2','123456','abc010@163.com',1);

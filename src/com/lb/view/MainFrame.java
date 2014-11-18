@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lb.domain.UserInfo;
+import com.lb.domain.User;
 
 public class MainFrame extends HttpServlet {
 
