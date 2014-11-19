@@ -111,6 +111,7 @@ public class SqlHelper {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
 		} finally {
 			close(rs, cst, conn);
 		}
@@ -220,6 +221,8 @@ public class SqlHelper {
 			ptmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
 		} finally {
 			close(rs, cst, conn);
 		}

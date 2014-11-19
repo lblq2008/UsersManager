@@ -31,7 +31,7 @@ public class UsersService {
 		return isChecked ;
 	}
 	
-	public int getRowCounts(){
+	public int getRowCount(){
 		int rowCount = 0 ;
 		String count_sql = "select count(*) from users" ;
 		ResultSet rs = SqlHelper.executeQuery(count_sql, null);;
@@ -45,6 +45,36 @@ public class UsersService {
 			SqlHelper.close(rs, SqlHelper.getPtmt(), SqlHelper.getCt());
 		}
 		return rowCount ;
+	}
+	
+	public int getPageCount(int pageSize){
+		int rowCount = 0 ;
+		String count_sql = "select count(*) from users" ;
+		ResultSet rs = SqlHelper.executeQuery(count_sql, null);;
+		try {
+			rs.next();
+			rowCount = rs.getInt(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			SqlHelper.close(rs, SqlHelper.getPtmt(), SqlHelper.getCt());
+		}
+		//(rowCount -1)/pageSize + 1;
+		return rowCount % pageSize == 0 ? rowCount / pageSize : rowCount / pageSize + 1;
+	}
+	
+	public boolean deleteUser(String id){
+		String sql = "delete from users where id = ?" ;
+		String[] parameters = {id};
+		try {
+			SqlHelper.executeUDI(sql, parameters );
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false ;
+		}
+		return true ;
 	}
 
 

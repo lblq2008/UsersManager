@@ -20,41 +20,41 @@ public class UsersManageServlet extends HttpServlet {
 		System.out.println("进入用户管理页面...");
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
+		
+		out.println("<script type='text/javascript' language='javascript'>");
+		out.println("function confirmAlert(){return window.confirm('真的要删除吗?');}");
+		out.println("</script>");
+		
 		out.println("<HTML>");
 		out.println("<HEAD><TITLE>用户管理</TITLE></HEAD>");
-		out.print("<h2>用户管理页面<h2>");
+		out.print("<h2>用户管理页面<h2><hr>");
 		out.println("<BODY>");
 		out.println("<table border='1' width='500px'>");
-		out.println("<th>编号</th><th>账号</th><th>姓名</th><th>密码</th><th>邮箱</th><th>权限</th>");
+		out.println("<th>编号</th><th>账号</th><th>姓名</th><th>密码</th><th>邮箱</th><th>权限</th><th>删除</th><th>修改</th>");
 
+		//定义数据库操作类对象
+		UsersService usersService = new UsersService();
 		// 定义分页变量
 		int pageNow = 1;// 当前页面
-
 		int pageSize = 3;// 每页的条数
 		int pageCount = 0;// 总共的页数
-		int rowCount = 0;// 数据总条数
-
-		rowCount = new UsersService().getRowCounts();
-		System.out.println("共有:  " + rowCount + " 条数据...");
-		pageCount = rowCount % pageSize == 0 ? rowCount / pageSize : rowCount / pageSize + 1;
-
+		pageCount = usersService.getPageCount(pageSize);
 		String sPageNow = request.getParameter("pageNow");
 		if (sPageNow != null) {
 			pageNow = Integer.parseInt(sPageNow);
-
 		}
 		pageNow = (pageNow = pageNow >= pageCount ? pageCount : pageNow) > 0 ? pageNow : 1;
 		System.out.println("当前显示第 " + pageNow + " 页...");
-
-		List<User> list = new UsersService().getResultSetObject((pageNow - 1) * pageSize, pageSize );
+		
+		List<User> list = usersService.getResultSetObject((pageNow - 1) * pageSize, pageSize );
 		System.out.println("当前显示:  " + list.size() + " 条数据...");
 		
 		for (User user : list) {
 			out.println("<tr><td>" + user.getId() + "</td><td>"
-					+ user.getUserName() + "</td><td>" + MyTools.getGBK(user.getRealName())
+					+ user.getUserName() + "</td><td>" + user.getRealName()
 					+ "</td><td>" + user.getPassWord() + "</td><td>"
 					+ user.getEmail() + "</td><td>" + user.getGrade()
-					+ "</td></tr>");
+					+ "</td> <td><a onClick='confirmAlert()' href='/UsersManager/DeleteCLServlet?id=" + user.getId()+ "'>删除</a></td> <td><a href='/UsersManager/DeleteCLServlet?id=" + user.getId()+ "'>修改</a></td></tr>");
 		}
 
 		out.println("</table>");
@@ -85,7 +85,7 @@ public class UsersManageServlet extends HttpServlet {
 						+ "<form action='/UsersManager/UsersManageServlet' method='post'>跳转到:&nbsp;<input type='number' name='pageNow'/>"
 						+ "<input type='submit' value='GO'/></form>");
 
-		out.println("</BODY>");
+		out.println("</BODY><hr>");
 		out.println("</HTML>");
 		out.flush();
 		out.close();
@@ -93,7 +93,6 @@ public class UsersManageServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		this.doGet(request, response);
 	}
 
