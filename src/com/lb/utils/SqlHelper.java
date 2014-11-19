@@ -153,6 +153,25 @@ public class SqlHelper {
 		}
 		return rs;
 	}
+	
+	public static ResultSet executeQueryObject(String sql, Object[] parameters) {
+		try {
+			conn = getConnect();
+			ptmt = conn.prepareStatement(sql);
+			if (parameters != null && !parameters.equals("")) {
+				for (int i = 0; i < parameters.length; i++) {
+					ptmt.setObject(i + 1, parameters[i]);
+				}
+			}
+			rs = ptmt.executeQuery();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			//close(rs, ptmt, conn);
+		}
+		return rs;
+	}
 
 	// 如果有多个update/delete/insert [需要考虑事务]
 	public static void executeUDIS(String[] sql, String[][] parameters) {

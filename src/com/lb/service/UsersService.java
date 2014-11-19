@@ -19,7 +19,9 @@ public class UsersService {
 		String[] parameters = {user.getUserName(),user.getPassWord()};
 		ResultSet rs = SqlHelper.executeQuery(sql, parameters);
 		try {
-			isChecked = rs.next();
+			if(rs!=null){
+				isChecked = rs.next();
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -45,12 +47,18 @@ public class UsersService {
 		return rowCount ;
 	}
 
-	
-	public List<User> getResultSet(String start ,String pageSize){
+
+	/**
+	 * 分页获取数据
+	 * @param start
+	 * @param pageSize
+	 * @return
+	 */
+	public List<User> getResultSetObject(int start ,int pageSize){
 		String sql = "select * from users limit ?,?" ;
-		String[] parameters = {start,pageSize };
+		Object[] parameters = {start,pageSize };
 		List<User> list = new ArrayList<User>();
-		ResultSet rs = SqlHelper.executeQuery(sql, parameters);
+		ResultSet rs = SqlHelper.executeQueryObject(sql, parameters);
 		try {
 			while (rs.next()) {
 				User user = new User() ;
@@ -60,7 +68,6 @@ public class UsersService {
 //				user.setPassWord(rs.getString(rs.getString("password")));
 //				user.setEmail(rs.getString(rs.getString("email")));
 //				user.setGrade(rs.getInt(rs.getString("grade")));
-				System.out.println("-------");
 				user.setId(rs.getInt(1));
 				user.setUserName(rs.getString(2));
 				user.setRealName(rs.getString(3));
@@ -78,35 +85,4 @@ public class UsersService {
 		return list;
 	}
 	
-	public List<User> getResultSetInt(int start ,int pageSize){
-		String sql = "select * from users limit ?,?" ;
-		int[] parameters = {start,pageSize };
-		List<User> list = new ArrayList<User>();
-		ResultSet rs = SqlHelper.executeQueryInt(sql, parameters);
-		try {
-			while (rs.next()) {
-				User user = new User() ;
-//				user.setId(rs.getInt(rs.getString("id")));
-//				user.setUserName(rs.getString(rs.getString("username")));
-//				user.setRealName(rs.getString(rs.getString("realname")));
-//				user.setPassWord(rs.getString(rs.getString("password")));
-//				user.setEmail(rs.getString(rs.getString("email")));
-//				user.setGrade(rs.getInt(rs.getString("grade")));
-				System.out.println("-------");
-				user.setId(rs.getInt(1));
-				user.setUserName(rs.getString(2));
-				user.setRealName(rs.getString(3));
-				user.setPassWord(rs.getString(4));
-				user.setEmail(rs.getString(5));
-				user.setGrade(rs.getInt(6));
-				list.add(user);
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally{
-			SqlHelper.close(rs, SqlHelper.getPtmt(), SqlHelper.getCt());
-		}
-		return list;
-	}
 }

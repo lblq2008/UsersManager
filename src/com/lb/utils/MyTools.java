@@ -12,4 +12,14 @@ public class MyTools {
 		}
 		return text ;
 	}
+	
+	public static String getGBK(String text){
+		try {
+			return new String(text.getBytes("iso-8859-1"), "gbk");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return text ;
+	}
 }

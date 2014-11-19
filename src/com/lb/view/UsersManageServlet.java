@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lb.domain.User;
 import com.lb.service.UsersService;
+import com.lb.utils.MyTools;
 
 public class UsersManageServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,8 +25,7 @@ public class UsersManageServlet extends HttpServlet {
 		out.print("<h2>用户管理页面<h2>");
 		out.println("<BODY>");
 		out.println("<table border='1' width='500px'>");
-		out
-				.println("<th>编号</th><th>账号</th><th>姓名</th><th>密码</th><th>邮箱</th><th>权限</th>");
+		out.println("<th>编号</th><th>账号</th><th>姓名</th><th>密码</th><th>邮箱</th><th>权限</th>");
 
 		// 定义分页变量
 		int pageNow = 1;// 当前页面
@@ -44,16 +44,14 @@ public class UsersManageServlet extends HttpServlet {
 
 		}
 		pageNow = (pageNow = pageNow >= pageCount ? pageCount : pageNow) > 0 ? pageNow : 1;
-
 		System.out.println("当前显示第 " + pageNow + " 页...");
 
-		List<User> list = new UsersService().getResultSetInt((pageNow - 1) * pageSize, pageSize );
-		
+		List<User> list = new UsersService().getResultSetObject((pageNow - 1) * pageSize, pageSize );
 		System.out.println("当前显示:  " + list.size() + " 条数据...");
 		
 		for (User user : list) {
 			out.println("<tr><td>" + user.getId() + "</td><td>"
-					+ user.getUserName() + "</td><td>" + user.getRealName()
+					+ user.getUserName() + "</td><td>" + MyTools.getGBK(user.getRealName())
 					+ "</td><td>" + user.getPassWord() + "</td><td>"
 					+ user.getEmail() + "</td><td>" + user.getGrade()
 					+ "</td></tr>");
@@ -66,8 +64,13 @@ public class UsersManageServlet extends HttpServlet {
 					+ (pageNow - 1) + "'> " + "上一页 " + " </a>");
 		}
 		for (int i = 1; i <= pageCount; i++) {
-			out.println("<a href='/UsersManager/UsersManageServlet?pageNow="
-					+ i + "'> <" + i + "> </a>");
+			if(i == pageNow){//当前页码显示成红色
+				out.println("<a href='/UsersManager/UsersManageServlet?pageNow="
+						+ i + "'> <<font color='red'>" + i + "</font>> </a>");
+			}else{
+				out.println("<a href='/UsersManager/UsersManageServlet?pageNow="
+						+ i + "'> <" + i + "> </a>");
+			}
 		}
 		if (pageNow < pageCount) {
 			// 显示下一页
