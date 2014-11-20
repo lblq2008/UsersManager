@@ -39,8 +39,8 @@
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>DeleteCLServlet</servlet-name>
-    <servlet-class>com.lb.controller.DeleteCLServlet</servlet-class>
+    <servlet-name>UserCLServlet</servlet-name>
+    <servlet-class>com.lb.controller.UserCLServlet</servlet-class>
   </servlet>
   <servlet>
     <description>This is the description of my J2EE component</description>
@@ -54,6 +54,13 @@
     <servlet-name>ErrorServlet</servlet-name>
     <servlet-class>com.lb.view.ErrorServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateView</servlet-name>
+    <servlet-class>com.lb.view.UpdateView</servlet-class>
+  </servlet>
+
 
 
 
@@ -88,8 +95,8 @@
     <url-pattern>/UserSerachServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>DeleteCLServlet</servlet-name>
-    <url-pattern>/DeleteCLServlet</url-pattern>
+    <servlet-name>UserCLServlet</servlet-name>
+    <url-pattern>/UserCLServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>OKServlet</servlet-name>
@@ -98,6 +105,10 @@
   <servlet-mapping>
     <servlet-name>ErrorServlet</servlet-name>
     <url-pattern>/ErrorServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateView</servlet-name>
+    <url-pattern>/UpdateView</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

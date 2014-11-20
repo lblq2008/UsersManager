@@ -9,7 +9,7 @@ create database lb_database ;
 
 //使用数据库
 use lb_database ;
-
+// id , username , realname , password , email , grade
 //建表
 create table users(id integer primary key auto_increment , username varchar(20) not null, realname varchar(20), password varchar(20) not null, email varchar(32), grade integer default 1 );
 

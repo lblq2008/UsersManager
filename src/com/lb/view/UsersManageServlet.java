@@ -54,7 +54,7 @@ public class UsersManageServlet extends HttpServlet {
 					+ user.getUserName() + "</td><td>" + user.getRealName()
 					+ "</td><td>" + user.getPassWord() + "</td><td>"
 					+ user.getEmail() + "</td><td>" + user.getGrade()
-					+ "</td> <td><a onClick='confirmAlert()' href='/UsersManager/DeleteCLServlet?id=" + user.getId()+ "'>删除</a></td> <td><a href='/UsersManager/DeleteCLServlet?id=" + user.getId()+ "'>修改</a></td></tr>");
+					+ "</td> <td><a onClick='confirmAlert()' href='/UsersManager/UserCLServlet?type=delete&id=" + user.getId()+ "'>删除</a></td> <td><a href='/UsersManager/UserCLServlet?type=updateView&id=" + user.getId()+ "'>修改</a></td></tr>");
 		}
 
 		out.println("</table>");

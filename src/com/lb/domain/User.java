@@ -43,5 +43,25 @@ public class User {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+	public User(int id, String userName, String realName, String passWord,
+			String email, int grade) {
+		this.id = id;
+		this.userName = userName;
+		this.realName = realName;
+		this.passWord = passWord;
+		this.email = email;
+		this.grade = grade;
+	}
+	public User() {
+		super();
+	}
+	public User(String userName, String realName, String passWord,
+			String email, int grade) {
+		this.userName = userName;
+		this.realName = realName;
+		this.passWord = passWord;
+		this.email = email;
+		this.grade = grade;
+	}
 	
 }

@@ -14,6 +14,11 @@ public class ErrorServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		String propmt = request.getParameter("propmt");
+		if(propmt == null){
+			propmt = "恭喜你，操作失败";
+		}
 		PrintWriter out = response.getWriter();
 		out
 				.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");

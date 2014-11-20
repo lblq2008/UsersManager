@@ -15,13 +15,18 @@ public class OKServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		String propmt = request.getParameter("propmt");
+		if(propmt == null){
+			propmt = "恭喜你，操作成功";
+		}
 		PrintWriter out = response.getWriter();
 		out
 				.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 		out.println("<HTML>");
 		out.println("  <HEAD><TITLE>操作成功</TITLE></HEAD>");
 		out.println("  <BODY>");
-		out.println("操作成功");
+		out.println(propmt);
 		out.println("<a href='/UsersManager/MainFrame'>返回到主页面</a>");
 		out.println("  </BODY>");
 		out.println("</HTML>");
