@@ -60,6 +60,13 @@
     <servlet-name>UpdateView</servlet-name>
     <servlet-class>com.lb.view.UpdateView</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CreateCheckCode</servlet-name>
+    <servlet-class>com.lb.controller.CreateCheckCode</servlet-class>
+  </servlet>
+
 
 
 
@@ -109,6 +116,10 @@
   <servlet-mapping>
     <servlet-name>UpdateView</servlet-name>
     <url-pattern>/UpdateView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CreateCheckCode</servlet-name>
+    <url-pattern>/CreateCheckCode</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
