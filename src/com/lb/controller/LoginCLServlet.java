@@ -54,6 +54,7 @@ public class LoginCLServlet extends HttpServlet {
 				response.addCookie(cookieSaveLoginInfo);
 			}
 			//成功则跳转到主页面MainFrame
+			this.getServletContext().setAttribute("nums", (Integer.parseInt(this.getServletContext().getAttribute("nums").toString()) + 1) + "");
 			System.out.println("恭喜:密码验证正确...");
 			request.getSession().setAttribute("username", username);
 			request.getRequestDispatcher("/MainFrame").forward(request, response);

@@ -46,7 +46,8 @@ public class UsersManageServlet extends HttpServlet {
 		pageNow = (pageNow = pageNow >= pageCount ? pageCount : pageNow) > 0 ? pageNow : 1;
 		System.out.println("当前显示第 " + pageNow + " 页...");
 		
-		List<User> list = usersService.getResultSetObject((pageNow - 1) * pageSize, pageSize );
+		//List<User> list = usersService.getResultSetObject((pageNow - 1) * pageSize, pageSize );
+		List<User> list = usersService.getListObject((pageNow - 1) * pageSize, pageSize );
 		System.out.println("当前显示:  " + list.size() + " 条数据...");
 		
 		for (User user : list) {

@@ -236,6 +236,37 @@ public class UsersService {
 		return user ;
 	}
 	
+	
+	/**
+	 * 分页获取数据2
+	 * @param start
+	 * @param pageSize
+	 * @return
+	 */
+	public List<User> getListObject(int start ,int pageSize){
+		String sql = "select * from users limit ?,?" ;
+		Object[] parameters = {start,pageSize };
+		List<User> list = new ArrayList<User>();
+		ArrayList al = SqlHelper.executeQueryList(sql, parameters);
+		try {
+			for (int i = 0; i < al.size(); i++) {
+				Object[] objects = (Object[]) al.get(i);
+				User user = new User();
+				user.setId(Integer.parseInt(objects[0].toString()));
+				user.setUserName(objects[1].toString());
+				user.setRealName(objects[2].toString());
+				user.setPassWord(objects[3].toString());
+				user.setEmail(objects[4].toString());
+				user.setGrade(Integer.parseInt(objects[5].toString()));
+				list.add(user);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 
 	/**
 	 * 分页获取数据

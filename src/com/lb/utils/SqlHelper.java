@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class SqlHelper {
@@ -115,6 +117,38 @@ public class SqlHelper {
 		} finally {
 			close(rs, cst, conn);
 		}
+	}
+	
+	public static ArrayList executeQueryList(String sql, Object[] parameters) {
+		PreparedStatement preparedStatement = null ;
+		Connection connection = null;
+		ResultSet resultSet = null ;
+		ArrayList list = new ArrayList();
+		try {
+			connection = getConnect();
+			preparedStatement = connection.prepareStatement(sql);
+			if (parameters != null && !parameters.equals("")) {
+				for (int i = 0; i < parameters.length; i++) {
+					preparedStatement.setObject(i + 1, parameters[i]);
+				}
+			}
+			resultSet = preparedStatement.executeQuery();
+			ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+			int columns = resultSetMetaData.getColumnCount();
+			while(resultSet.next()){
+				Object[] objects = new Object[columns];
+				for (int i = 1; i <= objects.length; i++) {
+					objects[i-1] = resultSet.getObject(i);
+				}
+				list.add(objects);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			close(resultSet, preparedStatement, connection);
+		}
+		return list;
 	}
 
 	public static ResultSet executeQuery(String sql, String[] parameters) {

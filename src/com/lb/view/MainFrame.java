@@ -50,7 +50,7 @@ public class MainFrame extends HttpServlet {
 		out.println("  <H2>主界面</H2>");
 		out.println("  <BODY>");
 		out.print(" 欢迎你: " + request.getSession().getAttribute("username") + "");
-		out.print(isFirstLogin?"欢迎您第一次登录<br>":" 上次登录时间: " + lastLoginTime + "<br>");
+		out.print(isFirstLogin?"欢迎您第一次登录<br>":" 上次登录时间: " + lastLoginTime + "本网站一共有" + this.getServletContext().getAttribute("nums") + "次访问"+ "<br>");
 		out.print(" <br> <a href='/UsersManager/UsersManageServlet'>管理用户</a><br> ");
 		out.print(" <br> <a href='/UsersManager/UserAddServlet'>添加用户</a><br> ");
 		out.print(" <br> <a href='/UsersManager/UserSerachServlet'>查找用户</a><br> ");
