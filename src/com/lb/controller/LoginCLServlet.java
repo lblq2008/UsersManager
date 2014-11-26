@@ -55,6 +55,11 @@ public class LoginCLServlet extends HttpServlet {
 			}
 			//成功则跳转到主页面MainFrame
 			this.getServletContext().setAttribute("nums", (Integer.parseInt(this.getServletContext().getAttribute("nums").toString()) + 1) + "");
+			User userInfo = new User();
+			userInfo.setUserName(username);
+			userInfo.setPassWord(password);
+			request.getSession().setAttribute("loginuser", userInfo);
+			
 			System.out.println("恭喜:密码验证正确...");
 			request.getSession().setAttribute("username", username);
 			request.getRequestDispatcher("/MainFrame").forward(request, response);

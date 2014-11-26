@@ -1,78 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-  <servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.lb.view.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginCLServlet</servlet-name>
+		<servlet-class>com.lb.controller.LoginCLServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MainFrame</servlet-name>
+		<servlet-class>com.lb.view.MainFrame</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UsersManageServlet</servlet-name>
+		<servlet-class>com.lb.view.UsersManageServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UserAddServlet</servlet-name>
+		<servlet-class>com.lb.view.UserAddServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UserSerachServlet</servlet-name>
+		<servlet-class>com.lb.view.UserSerachServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UserCLServlet</servlet-name>
+		<servlet-class>com.lb.controller.UserCLServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>OKServlet</servlet-name>
+		<servlet-class>com.lb.view.OKServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>ErrorServlet</servlet-name>
+		<servlet-class>com.lb.view.ErrorServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>UpdateView</servlet-name>
+		<servlet-class>com.lb.view.UpdateView</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>CreateCheckCode</servlet-name>
+		<servlet-class>com.lb.controller.CreateCheckCode</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>InitDataServlet</servlet-name>
+		<servlet-class>com.lb.controller.InitDataServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!--
+		<servlet> <description>This is the description of my J2EE
+		component</description> <display-name>This is the display name of my
+		J2EE component</display-name>
+		<servlet-name>RequestFilter</servlet-name>
+		<servlet-class>com.lb.filter.RequestFilter</servlet-class> </servlet>
+	-->
+	<servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.lb.view.LoginServlet</servlet-class>
+    <servlet-name>AppLogin</servlet-name>
+    <servlet-class>com.lb.appserver.AppLogin</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>LoginCLServlet</servlet-name>
-    <servlet-class>com.lb.controller.LoginCLServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>MainFrame</servlet-name>
-    <servlet-class>com.lb.view.MainFrame</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>UsersManageServlet</servlet-name>
-    <servlet-class>com.lb.view.UsersManageServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>UserAddServlet</servlet-name>
-    <servlet-class>com.lb.view.UserAddServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>UserSerachServlet</servlet-name>
-    <servlet-class>com.lb.view.UserSerachServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>UserCLServlet</servlet-name>
-    <servlet-class>com.lb.controller.UserCLServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>OKServlet</servlet-name>
-    <servlet-class>com.lb.view.OKServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>ErrorServlet</servlet-name>
-    <servlet-class>com.lb.view.ErrorServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>UpdateView</servlet-name>
-    <servlet-class>com.lb.view.UpdateView</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>CreateCheckCode</servlet-name>
-    <servlet-class>com.lb.controller.CreateCheckCode</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>InitDataServlet</servlet-name>
-    <servlet-class>com.lb.controller.InitDataServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+	<filter>
+		<filter-name>RequestFilter</filter-name>
+		<filter-class>com.lb.filter.RequestFilter</filter-class>
+	</filter>
 
 
 
@@ -84,56 +100,69 @@
 
 
 
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/LoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginCLServlet</servlet-name>
+		<url-pattern>/LoginCLServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MainFrame</servlet-name>
+		<url-pattern>/MainFrame</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UsersManageServlet</servlet-name>
+		<url-pattern>/UsersManageServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserAddServlet</servlet-name>
+		<url-pattern>/UserAddServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserSerachServlet</servlet-name>
+		<url-pattern>/UserSerachServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserCLServlet</servlet-name>
+		<url-pattern>/UserCLServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>OKServlet</servlet-name>
+		<url-pattern>/OKServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ErrorServlet</servlet-name>
+		<url-pattern>/ErrorServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateView</servlet-name>
+		<url-pattern>/UpdateView</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CreateCheckCode</servlet-name>
+		<url-pattern>/CreateCheckCode</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>InitDataServlet</servlet-name>
+		<url-pattern>/InitDataServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+    <servlet-name>AppLogin</servlet-name>
+    <url-pattern>/AppLogin</url-pattern>
+  </servlet-mapping>
+	<!--
+		<servlet-mapping> <servlet-name>RequestFilter</servlet-name>
 
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>LoginCLServlet</servlet-name>
-    <url-pattern>/LoginCLServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>MainFrame</servlet-name>
-    <url-pattern>/MainFrame</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UsersManageServlet</servlet-name>
-    <url-pattern>/UsersManageServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserAddServlet</servlet-name>
-    <url-pattern>/UserAddServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserSerachServlet</servlet-name>
-    <url-pattern>/UserSerachServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UserCLServlet</servlet-name>
-    <url-pattern>/UserCLServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>OKServlet</servlet-name>
-    <url-pattern>/OKServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ErrorServlet</servlet-name>
-    <url-pattern>/ErrorServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>UpdateView</servlet-name>
-    <url-pattern>/UpdateView</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CreateCheckCode</servlet-name>
-    <url-pattern>/CreateCheckCode</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>InitDataServlet</servlet-name>
-    <url-pattern>/InitDataServlet</url-pattern>
-  </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+		<url-pattern>/*</url-pattern> </servlet-mapping>
+	-->
+	<filter-mapping>
+		<filter-name>RequestFilter</filter-name>
+		<!-- 表示对该WEB的所有网页都过滤 -->
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

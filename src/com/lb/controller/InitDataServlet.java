@@ -11,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 public class InitDataServlet extends HttpServlet {
-
 	
 	public void destroy() {
 		super.destroy(); 
@@ -19,7 +18,9 @@ public class InitDataServlet extends HttpServlet {
 		writeCounter();
 	}
 
-
+	/**
+	 * 把计数器内容写到文件中
+	 */
 	private void writeCounter() {
 		String path = this.getServletContext().getRealPath("counter.txt");
 		FileWriter fileWriter = null ;
@@ -54,7 +55,7 @@ public class InitDataServlet extends HttpServlet {
 			public void run() {
 				// TODO Auto-generated method stub
 				try {
-					Thread.sleep(3600);
+					Thread.sleep(3600);//每隔一小时执行一次
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -65,6 +66,9 @@ public class InitDataServlet extends HttpServlet {
 	}
 
 
+	/**
+	 * 从文件中读取计数器内容
+	 */
 	private void readCounter() {
 		//读取网站计数的内容
 		String path = this.getServletContext().getRealPath("counter.txt");
